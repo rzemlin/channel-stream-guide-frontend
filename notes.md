@@ -1,32 +1,3 @@
-Routes
-
-Controllers
-
-Serializers
-
-Follow Up Question:
-
-rails g migration AddCategoryToSyllabus category:belongs_to will generate the following migration:
-class AddCategoryToSyllabus < ActiveRecord::Migration
-  def change
-    add_reference :syllabuses, :category, null: false, foreign_key: true
-  end
-end
-I WAS WRONG: Because we're using PostGres we need to delete null: false so this migration will be successful. Read why here.
-SHOUT OUT TO WILLIAM: WE DO NOT need to delete null: false in this migration. But we do need to delete the syllabi seed data in the rails console before running the migration using: Syllabus.all.each{|s| s.destroy}
-"I ran into the same issue when I had to a foreign key to one of my tables. It happens because we already seeded the database with records in the table which we are trying to add the foreign key to. As a result, when we run the migration, the database can't add the column because by default those records would then have `null` values for the foreign key. **I think it is important that a foreign key reference always be non-null to ensure the integrity of the database.** As a result, the "fix" I used (since I didn't want to just drop my database) was just to go into the Rails console and run `Word.all.each{|w| w.destroy}` to drop all of the words that would have had a `null` foreign key reference to the author model. After that, the migration ran and I was able to keep the null false check in PostgreSQL."
-
-— William Barela
-PART 3
-Rails vs JS (Backend vs. Frontend)
-Coming from the Rails Section, you may be used to a framework such as Ruby on Rails being very opinionated. That is, it has a lot of opinions about how your application should be structured. The same rules don't apply on the frontend, there is not one right way to structure your code. Specifically, we are not using any frontend framework and many of the design decisions will be left up to you.
-
-In PART 3 of this project build, we'll walk through getting and creating data and provide some example code. The example code will demonstrate a reasonable/sensible way to structure this application. You should learn what you can from it and structure your code in a similar pattern.
-
-The key word here is similar, rather than directly copying the patterns shown, try to apply the principles you have learned (oo, single responsibility principle, encapsulation) to make code that will be easy for you as your application grows.
-
-Source: JavaScript Rails API Project Setup
-
 Initial Set Up
 Make sure you create a separate directory and a separate GitHub repository for the frontend.
 
