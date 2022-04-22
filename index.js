@@ -39,6 +39,18 @@ function createFormHandler(e) {
 }
 
 function postFetch(title, description, img_url, genre_id) {
-console.log(title, description, img_url, genre_id)
-
+  fetch(endPoint, {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({
+      title: title, 
+      description: description,
+      img_url: img_url,
+      genre_id: genre_id 
+      })
+    })
+     .then(response => response.json())
+     .then(channel => {
+       console.log(channel);
+  })
 }
