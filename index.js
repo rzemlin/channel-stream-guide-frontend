@@ -12,22 +12,26 @@ const createChannelForm = document.querySelector("#create-channel-form")
 function getChannels() {
     fetch(endPoint)
 .then(response => response.json())
-.then(channels => {
-    channels.data.forEach(channels => {
-     
-        const channelsMarkup = `
+.then(channel => {
+    channel.data.forEach(channel => {
+     render(channel)
         
-          <div data-id=${channels.id}>
-            <img src=${channels.attributes.image_url} height="200" width="250">
-            <h3>${channels.attributes.name}</h3>
-            <p>${channels.attributes.genre.name}</p>
-            <button data-id=${channels.id}>edit</button>
-          </div>
-          <br><br>`;
-
-          document.querySelector('#channels-container').innerHTML += channelsMarkup
       })
   })
+}
+
+function render(channel) {
+  const channelsMarkup = `
+        
+  <div data-id=${channel.id}>
+    <img src=${channel.attributes.image_url} height="200" width="250">
+    <h3>${channel.attributes.name}</h3>
+    <p>${channel.attributes.genre.name}</p>
+    <button data-id=${channel.id}>edit</button>
+  </div>
+  <br><br>`;
+
+  document.querySelector('#channels-container').innerHTML += channelsMarkup
 }
 
 function createFormHandler(e) {
@@ -40,27 +44,32 @@ function createFormHandler(e) {
 }
 
 function postFetch(name, description, img_url, genre_id) {
-  bodyData = {name, description, img_url, genre_id}
+   bodyData = {name, description, img_url, genre_id}
   fetch(endPoint, {
     method: "POST",
-    headers: {"Content-Type": "application/json"},
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
     body: JSON.stringify(bodyData)
     })
      .then(response => response.json())
+     //debugger
      .then(channel => {
        console.log(channel);
-      
-       const channelData = channel.data.attributes
-       const channelsMarkup = `
-        
-          <div data-id=${channel.id}>
-            <img src=${channelData.image_url} height="200" width="250">
-            <h3>${channelData.name}</h3>
-            <p>${channelData.genre.name}</p>
-           <button data-id=${channelData.id}>edit</button>
-          </div>
-         <br><br>`;
-
-         document.querySelector('#channels-container').innerHTML += channelsMarkup
-  })
+      //debugger
+      const channelData = channel.data
+      // debugger
+      //const channelsMarkup = `
+      //<div data-id=${channel.id}>
+      //  <img src=${channel.image_url} height="200" width="250">
+      //  <h3>${channel.name}</h3>
+      //  <p>${channel.genre.name}</p>
+      //  <button data-id=${channel.id}>edit</button>
+      //</div>
+      //<br><br>`;
+    
+      //document.querySelector('#channels-container').innerHTML += channelsMarkup
+      render(channelData)
+    })
 }
