@@ -15,8 +15,8 @@ function getChannels() {
 .then(channel => {
     channel.data.forEach(channel => {
      render(channel)
-        
       })
+      .catch(err => console.log(err))
   })
 }
 
