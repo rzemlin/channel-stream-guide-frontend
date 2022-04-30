@@ -14,26 +14,12 @@ function getChannels() {
 .then(response => response.json())
 .then(channel => {
     channel.data.forEach(channel => {
-     render(channel)
+      let newChannel = new Channel (channel, channel.attributes)
+      document.querySelector('#channels-container').innerHTML += newChannel.renderChannelCard()
       })
-      .catch(err => console.log(err))
+      
   })
 }
-
-function render(channel) {
-  const channelsMarkup = `
-        
-  <div data-id=${channel.id}>
-    <img src=${channel.attributes.image_url} height="200" width="250">
-    <h3>${channel.attributes.name}</h3>
-    <p>${channel.attributes.genre.name}</p>
-    <button data-id=${channel.id}>edit</button>
-  </div>
-  <br><br>`;
-
-  document.querySelector('#channels-container').innerHTML += channelsMarkup
-}
-
 function createFormHandler(e) {
     e.preventDefault()
      const nameInput = document.querySelector("#input-name").value
@@ -56,20 +42,21 @@ function postFetch(name, description, img_url, genre_id) {
      .then(response => response.json())
      //debugger
      .then(channel => {
-       console.log(channel);
-      //debugger
+        console.log(channel);
+       // debugger
       const channelData = channel.data
-      // debugger
-      //const channelsMarkup = `
-      //<div data-id=${channel.id}>
-      //  <img src=${channel.image_url} height="200" width="250">
-      //  <h3>${channel.name}</h3>
-      //  <p>${channel.genre.name}</p>
-      //  <button data-id=${channel.id}>edit</button>
-      //</div>
-      //<br><br>`;
+       // debugger
+       // const channelsMarkup = `
+       // <div data-id=${channel.id}>
+       //  <img src=${channel.image_url} height="200" width="250">
+       //  <h3>${channel.name}</h3>
+       //  <p>${channel.genre.name}</p>
+       //  <button data-id=${channel.id}>edit</button>
+       //</div>
+       //<br><br>`;
     
       //document.querySelector('#channels-container').innerHTML += channelsMarkup
-      render(channelData)
+      let newChannel = new Channel (channel.data, channel.data.attributes)
+      document.querySelector('#channels-container').innerHTML += newChannel.renderChannelCard()
     })
 }
