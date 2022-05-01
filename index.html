@@ -1,44 +1,147 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<html>
+  <head>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
+    <title>Channel Stream Guide</title>
     <script type="text/javascript" src="src/channel.js"></script>
     <script type="text/javascript" src="index.js"></script>
-    <title>Channel-Streamer</title>
-</head>
-<body>
-
-    <div class="form-container">
-
-        <form id="create-channel-form" style="">
-         <h3>Add a new channel</h3>
-      
-          <input id='input-name' type="text" name="name" value="" placeholder="Enter channel name..." class="input-text">
-          <br><br>
-          <textarea id='input-description' name="description" rows="8" cols="80" value="" placeholder="Enter channel description"></textarea>
-          <br><br>
-          <input id='input-url' type="text" name="image_url" value="" placeholder="Enter channel image URL..." class="input-text">
-          <br><br>
-          <p>Select a Genre</p>
-          <select id="genre" name="Genre">
-            <option value="1">Sports</option>
-            <option value="2">News</option>
-            <option value="3">Drama</option>
-            <option value="4">Comedy</option>
-            <option value="5">Action</option>
-          </select>
-          <br><br>
-      
-          <input id= 'create-button' type="submit" name="submit" value="Create New Channel" class="submit">
-        </form>
-        <br></br>
-      
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.9.1/css/OverlayScrollbars.min.css'>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <!-- Bulma Version 0.9.0-->
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/hero.css">
+    <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
+    <style>
+    .columns:nth-child(2)
+    {margin-top: -10rem;}
+    </style>
+  </head>
+  <body>
+    <section class="hero is-info is-small">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <p class="title">
+            Channel Stream Guide
+          </p>
+          <p class="subtitle">
+            This page is designed to help determine which tv channels are offered on which services
+          </p>
+        </div>
       </div>
-
-   <div id='channels-container'>
-
-   </div> 
-</body>
-</html>
+    </section>
+    <div class="box cta">
+      <p class="has-text-centered">
+        <span class="tag is-primary">form id="create-channel-form" style="">
+            <h3>Add a new channel</h3>
+         
+             <input id='input-name' type="text" name="name" value="" placeholder="Enter channel name..." class="input-text">
+             <br><br>
+             <textarea id='input-description' name="description" rows="8" cols="80" value="" placeholder="Enter channel description"></textarea>
+             <br><br>
+             <input id='input-url' type="text" name="image_url" value="" placeholder="Enter channel image URL..." class="input-text">
+             <br><br>
+             <p>Select a Genre</p>
+             <select id="genre" name="Genre">
+               <option value="1">Sports</option>
+               <option value="2">News</option>
+               <option value="3">Drama</option>
+               <option value="4">Comedy</option>
+               <option value="5">Action</option>
+             </select>
+             <br><br>
+             <input id= 'create-button' type="submit" name="submit" value="Create New Channel" class="submit">
+           </form>
+      </p>
+    </div>
+    <section class="container">
+      <div class="columns features">
+        <div class="column is-4">
+          <div class="card is-shady">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="https://source.unsplash.com/RWnpyGtY1aU" alt="Placeholder image" class="modal-button" data-target="modal-image2">
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="content">
+                <h4>Click on image above</h4>
+                <p>Purus semper eget duis at tellus at urna condimentum mattis. Non blandit massa enim nec. Integer enim neque volutpat ac tincidunt vitae semper quis. Accumsan tortor posuere ac ut consequat semper viverra nam.</p>
+                <span class="button is-link modal-button" data-target="modal-image2">Image modal</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column is-4">
+          <div class="card is-shady">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="https://source.unsplash.com/6Ticnhs1AG0" alt="Placeholder image">
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="content">
+                <h4>Tempor orci dapibus faber in.</h4>
+                <p>Ut venenatis tellus in metus vulputate. Amet consectetur adipiscing elit pellentesque. Sed arcu non odio euismod lacinia at quis risus. Faucibus turpis in eu mi bibendum neque egestas cmonsu songue. Phasellus vestibulum lorem
+                sed risus.</p>
+                <span class="button is-link modal-button" data-target="modal-card">Modal Card</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column is-4 modal-button" data-target="modal-image">
+          <div class="card is-shady">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="https://res.cloudinary.com/ameo/image/upload/v1568711475/pexels-photo-1302883_fjje0f.jpg" alt="Placeholder image">
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="content">
+                <h4>Click anywhere on card</h4>
+                <p>Imperdiet dui accumsan sit amet nulla facilisi morbi. Fusce ut placerat orci nulla pellentesque dignissim enim. Libero id faucibus nisl tincidunt eget nullam. Commodo viverra maecenas accumsan lacus vel facilisis.</p>
+                <span class="button is-link modal-button" data-target="modal-image">Image modal</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="columns features">
+        <div class="column is-4 modal-button" data-target="modal-card">
+          <div class="card is-shady">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="https://res.cloudinary.com/ameo/image/upload/v1568711475/pexels-photo-1302883_fjje0f.jpg" alt="Placeholder image">
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="content">
+                <h4>Click anywhere on card to <br>expand into modal card</h4>
+                <p>Purus semper eget duis at tellus at urna condimentum mattis. Non blandit massa enim nec. Integer enim neque volutpat ac tincidunt vitae semper quis. Accumsan tortor posuere ac ut consequat semper viverra nam.</p>
+                <span class="button is-link modal-button">Modal card</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column is-4">
+          <div class="card is-shady">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="https://source.unsplash.com/hLyd1LukQ7E" alt="butterfly image" class="modal-button" data-target="modal-image4">
+              </figure>
+            </div>
+            <div class="card-content  modal-button" data-target="modal-card2">
+              <div class="content">
+                <h4>Click anywhere on card to <br>expand into modal card - header image expands into bigger image</h4>
+                <p>Purus semper eget duis at tellus at urna condimentum mattis. Non blandit massa enim nec. Integer enim neque volutpat ac tincidunt vitae semper quis.</p>
+                <span class="button is-link modal-button">Modal card</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+   
