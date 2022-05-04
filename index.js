@@ -1,7 +1,9 @@
 const endPoint = "http://localhost:3000/api/v1/channels"
 
 document.addEventListener("DOMContentLoaded", () => {
-getChannels()
+  console.log("content is loaded")
+
+  getChannels()
 
 const createChannelForm = document.querySelector("#create-channel-form")
   createChannelForm.addEventListener("submit", (e) => createFormHandler(e))
