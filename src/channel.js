@@ -18,7 +18,6 @@ class Channel {
           <img src=${this.image_url} height="200" width="250">
           <h3>${this.name}</h3>
           <p>${this.genre.name}</p>
-          <p>${this.service_id.name}</p>
           <button data-id=${this.id}>edit</button>
         </div>
         <br><br>`;
