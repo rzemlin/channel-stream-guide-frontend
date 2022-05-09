@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="src/channel.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+   
+    <title>Channel-Streamer</title>
+</head>
+<body>
+
+    <div class="form-container">
+
+        <form id="create-channel-form" style="">
+         <h3>Add a new channel</h3>
+      
+          <input id='input-name' type="text" name="name" value="" placeholder="Enter channel name..." class="input-text">
+          <br><br>
+          <textarea id='input-description' name="description" rows="8" cols="80" value="" placeholder="Enter channel description"></textarea>
+          <br><br>
+          <h6>Image Address</h6>
+          <input id='input-url' type="text" name="image_url" value="" placeholder="www.example.com" class="input-text">
+          <br><br>
+          <p>Select a Genre</p>
+          <select id="genre" name="Genre">
+            <option value="1">Sports</option>
+            <option value="2">News</option>
+            <option value="3">Drama</option>
+            <option value="4">Comedy</option>
+            <option value="5">Action</option>
+          </select>
+          <br><br>
+          <button type="button" class="btn btn-warning">Warning</button>
+          <input id= 'create-button' type="submit" name="submit" value="Create New Channel" class="submit">
+        </form>
+        <br></br>
+      
+      </div>
+
+   <div id='channels-container'>
+
+   </div> 
+</body>
+</html>

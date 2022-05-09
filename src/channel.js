@@ -8,19 +8,38 @@ class Channel {
       this.genre = channelAttributes.genre
       this.service = channelAttributes.service
       Channel.all.push(this)
+      console.log(this);
       // debugger
     }
     
     renderChannelCard() {
-         // debugger
-        return `
-        <div data-id=${this.id}>
-          <img src=${this.image_url} height="200" width="250">
-          <h3>${this.name}</h3>
-          <p>${this.genre.name}</p>
-          <button data-id=${this.id}>edit</button>
+      return `
+      <div class="col-md-3">
+        <div class="card mb-4 shadow-sm">
+          <img src=${this.image_url} class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">${this.name}</h5>
+            <p class="card-text">${this.description}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+              </div>
+              <small class="text-muted">Genre: ${this.genre.name}</small>
+            </div>
+          </div>
         </div>
-        <br><br>`;
+      </div>
+      `;
+         // debugger
+        //return `
+        //<div data-id=${this.id}>
+        //  <img src=${this.image_url} height="200" width="250">
+        //  <h3>${this.name}</h3>
+        //  <p>${this.genre.name}</p>
+        //  <button data-id=${this.id}>edit</button>
+        //</div>
+        //<br><br>`;
       }
 }
 
