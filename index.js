@@ -8,6 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
 const createChannelForm = document.querySelector("#create-channel-form")
   createChannelForm.addEventListener("submit", (e) => createFormHandler(e))
 
+const loginForm = document.querySelector("#login-form")
+  loginForm.addEventListener("submit", (e) => loginFormHandler(e))
+
 })
 
 
@@ -18,10 +21,41 @@ function getChannels() {
     channel.data.forEach(channel => {
       let newChannel = new Channel (channel, channel.attributes)
       document.querySelector('#channels-container').innerHTML += newChannel.renderChannelCard()
-      })
-      
+      })  
   })
 }
+
+function loginFormHandler(e) {
+  e.preventDefault()
+  const emailInput = document.querySelector("#login-email").value
+  const passwordInput = document.querySelector("#login-password").value
+  loginFetch(emailInput, passwordInput)
+}
+
+function loginFetch(email, password) {
+  const bodyData = {user: { email, password} }
+
+  fetch("http://localhost:3000/api/v1/login", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(bodyData)
+  })
+  .then(response => response.json())
+  .then(json => {
+    localStorage.setItem('jwt_token', json.jwt)
+    //debugger
+    //renderUserProfile()
+    console.log(json);
+    document.getElementById("login-form").reset();
+    alert("Welcome, You")
+    renderUserProfile()
+  })
+}
+
+function renderUserProfile() {
+  console.log(localStorage.getItem('jwt_token'));
+}
+
 function createFormHandler(e) {
     e.preventDefault()
      const nameInput = document.querySelector("#input-name").value
