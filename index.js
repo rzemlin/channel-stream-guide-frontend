@@ -87,7 +87,7 @@ function patchChannel(channel, name, img_url, description, genre_id){
                document.querySelector('#update-channel-form').remove()
                
                editButton()
-               document.querySelectorAll(".delete-btn").forEach((btn) => btn.addEventListener("click", deleteItem));
+               document.querySelectorAll("#deleteButton").forEach((btn) => btn.addEventListener("click", deleteChannel));
                //debugger
                console.log("Do the buttons work? ")
                document.getElementById("create-channel-form").reset();
