@@ -8,39 +8,68 @@ class Channel {
       this.genre = channelAttributes.genre
       this.service = channelAttributes.service
       Channel.all.push(this)
-      console.log(this);
-      // debugger
     }
-    
     renderChannelCard() {
       return `
-      <div class="col-md-3">
+      <div class="col-md-3" id="channel-${this.id}">
         <div class="card mb-4 shadow-sm">
           <img src=${this.img_url} class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">${this.name}</h5>
-            
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-              </div>
+              <button type="editButton" class="edit-btn btn-sm btn-outline-secondary" data-id=${this.id} id="editButton">Edit</button>        
+              <button type="button" class="btn btn-sm btn-outline-secondary" data-id=${this.id} id="deleteButton">Delete</button>
+            </div>
+            
               <small class="text-muted">Genre: ${this.genre.name}</small>
             </div>
+        
           </div>
         </div>
       </div>
       `;
-         // debugger
-        //return `
-        //<div data-id=${this.id}>
-        //  <img src=${this.image_url} height="200" width="250">
-        //  <h3>${this.name}</h3>
-        //  <p>${this.genre.name}</p>
-        //  <button data-id=${this.id}>edit</button>
-        //</div>
-        //<br><br>`;
       }
-}
+
+      static findById(id) {
+        //debugger
+        return this.all.find(channel => channel.id == id);
+    }
+      renderUpdateForm() {
+        return `
+      <section class="jumbotron text-center">
+      <div class="container">
+        <form id="update-channel-form" data-id=${this.id} name="${this.id}">
+          <div class="form-group">
+            <h4>Add Changes Here</h4>
+            <label for="channel-name"><p class="site-title">${this.name}</p></label>
+            <input type="name" class="form-control" id="input-name" value="" placeholder="Edit spelling or change name">
+          </div>
+          <div class="form-group">
+            <label for="image-source">Image Url</label>
+            <input type="img_url" class="form-control" id="input-img_url" value="${this.img_url}" placeholder="${this.img_url}">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Description</label>
+            <textarea class="form-control" id="input-description" rows="3" value="" placeholder="${this.description}"></textarea>
+          </div>
+          <div class="form-group">
+            <select id="genre" name="Genre">
+              <option value="1">Sports</option>
+              <option value="2">News</option>
+              <option value="3">Drama</option>
+              <option value="4">Comedy</option>
+              <option value="5">Action</option>
+              <option value="6">Entertainment</option>
+            </select>
+          </div>
+          <button type="submit" id="save-btn" class="btn btn-primary">Save Changes</button>
+        </form>
+        </div>
+      </div>
+    </section>`
+    }
+  }
+
 
 Channel.all = [];

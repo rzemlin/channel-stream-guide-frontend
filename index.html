@@ -16,7 +16,6 @@
     <!-- JS Project Tags -->
     <script type="text/javascript" src="src/channel.js"></script>
     <script type="text/javascript" src="index.js"></script>
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -93,34 +92,15 @@
 </header>
 
 <main role="main">
+  <div id="update-channel"> <!--identifier for edit function-->
   <div class="album py-5 bg-light">
     <div class="container">
       <div class= "col-md-3"></div>
       <div class="row" id="channels-container">
-        <!--modal-->
-        <div class="modal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>Modal body text goes here.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-      <!-- INSIDE ROW DIV -->
       </div>
       </div>
     </div>
   </div>
-
   <section class="jumbotron text-center">
     <div class="container">
       <form id="create-channel-form">
@@ -144,6 +124,7 @@
             <option value="3">Drama</option>
             <option value="4">Comedy</option>
             <option value="5">Action</option>
+            <option value="6">Etertainment</option>
           </select>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
